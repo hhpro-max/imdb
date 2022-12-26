@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imdb/feature/authPage/services/AuthService.dart';
+import 'package:get/get.dart';
 
 class CreatAccountPage extends StatelessWidget {
   CreatAccountPage({Key? key}) : super(key: key);
@@ -65,7 +66,9 @@ class CreatAccountPage extends StatelessWidget {
               Row(
                 children: [
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.off('/login');
+                      },
                       child: const Text(
                         "or login to your account",
                         style: TextStyle(color: Colors.cyan),

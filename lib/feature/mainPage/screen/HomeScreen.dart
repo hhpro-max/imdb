@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:imdb/constants/Utils.dart';
 import 'package:imdb/feature/mainPage/sevices/HomePageServices.dart';
 import 'package:imdb/feature/mainPage/widget/ReactiveAppBar.dart';
 import 'package:imdb/model/Movie.dart';
@@ -9,8 +10,8 @@ import 'package:imdb/provider/GetProvider.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
   var moviesSlider = (null as List<Movie>?).obs;
-  var newMovies = (null as List<Movie>?).obs;
-  var topRatedMovies = (null as List<Movie>?).obs;
+  static var newMovies = (null as List<Movie>?).obs;
+  static var topRatedMovies = (null as List<Movie>?).obs;
   fetchMoviesSlider(BuildContext context) async {
     moviesSlider.value =
         await HomePageServices.getSliderMovies(context: context);
@@ -44,12 +45,17 @@ class HomeScreen extends StatelessWidget {
                 margin: const EdgeInsets.all(20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text("New Movies"),
-                    Text(
-                      "show more",
-                      style: TextStyle(color: Colors.cyan),
-                    )
+                  children:  [
+                    const Text("New Movies"),
+                    TextButton(
+                     onPressed: (){
+                       //todo
+                       Utils.showSnackBar(context, "not defined yet");
+                     }
+                    , child: const Text("show more",
+                        style: TextStyle(color: Colors.cyan),),
+                    ),
+
                   ],
                 )),
 
@@ -62,12 +68,16 @@ class HomeScreen extends StatelessWidget {
                 margin: const EdgeInsets.all(20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Text("Top Rated Movies"),
-                    Text(
-                      "show more",
-                      style: TextStyle(color: Colors.cyan),
-                    )
+                  children:  [
+                    const Text("Top Rated Movies"),
+                    TextButton(
+                      onPressed: (){
+                        //todo
+                        Utils.showSnackBar(context, "not defined yet");
+                      }
+                      , child: const Text("show more",
+                      style: TextStyle(color: Colors.cyan),),
+                    ),
                   ],
                 )),
 

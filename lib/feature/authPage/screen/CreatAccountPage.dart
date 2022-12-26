@@ -67,7 +67,7 @@ class CreatAccountPage extends StatelessWidget {
                 children: [
                   TextButton(
                       onPressed: () {
-                        Get.off('/login');
+                        Get.offNamed('/login');
                       },
                       child: const Text(
                         "or login to your account",
